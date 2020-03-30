@@ -42,7 +42,7 @@ routes.get('/incidents', celebrate({
 routes.post('/incidents', celebrate({
     [Segments.HEADERS] : Joi.object().keys({
         authorization: Joi.string().required()
-    }),
+    }).unknown(),
     [Segments.BODY] : Joi.object().keys({
         title: Joi.string().required(),
         description: Joi.string().required(),
@@ -54,7 +54,7 @@ routes.post('/incidents', celebrate({
 routes.delete('/incidents/:id', celebrate({
     [Segments.HEADERS] : Joi.object().keys({
         authorization: Joi.string().required()
-    }),
+    }).unknown(),
     [Segments.PARAMS] : Joi.object().keys({
         id: Joi.number().required()
     })
